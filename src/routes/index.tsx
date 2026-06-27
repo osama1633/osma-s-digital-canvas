@@ -1,29 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { Navbar } from "@/components/portfolio/Navbar";
+import { Hero } from "@/components/portfolio/Hero";
+import {
+  About,
+  Certificates,
+  Contact,
+  Education,
+  FAQ,
+  Footer,
+  GitHubSection,
+  Projects,
+  Services,
+  Skills,
+  TechStack,
+} from "@/components/portfolio/Sections";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Osama Fares — Full Stack Web Developer" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Osama Fares — Full Stack Web Developer building modern, scalable, high-performance web applications with React, Next.js and TypeScript.",
+      },
+      { property: "og:title", content: "Osama Fares — Full Stack Web Developer" },
+      {
+        property: "og:description",
+        content:
+          "Premium portfolio of Osama Fares — crafting elegant, production-ready web experiences.",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative min-h-screen">
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <TechStack />
+      <Projects />
+      <Certificates />
+      <Education />
+      <Services />
+      <GitHubSection />
+      <Contact />
+      <FAQ />
+      <Footer />
+    </main>
   );
 }

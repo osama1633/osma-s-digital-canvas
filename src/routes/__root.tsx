@@ -77,20 +77,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { name: "theme-color", content: "#1a1612" },
+      { title: "Osama Fares — Full Stack Web Developer" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Osama Fares — Full Stack Web Developer crafting fast, elegant, production-ready web experiences with React, Next.js and TypeScript.",
+      },
+      { name: "author", content: "Osama Fares" },
+      { property: "og:title", content: "Osama Fares — Full Stack Web Developer" },
+      {
+        property: "og:description",
+        content:
+          "Premium portfolio of Osama Fares — building modern, scalable, high-performance web applications.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Osama Fares — Full Stack Web Developer" },
+      {
+        name: "twitter:description",
+        content: "Premium portfolio of Osama Fares — Full Stack Web Developer.",
+      },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap",
       },
+      { rel: "stylesheet", href: appCss },
     ],
   }),
   shellComponent: RootShell,
