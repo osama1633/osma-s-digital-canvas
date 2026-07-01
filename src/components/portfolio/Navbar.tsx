@@ -27,7 +27,7 @@ export function Navbar() {
         scrolled ? "py-3" : "py-5"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <nav
           className={`flex items-center justify-between rounded-full px-4 py-2.5 transition-all duration-500 sm:px-5 ${
             scrolled ? "glass-strong shadow-card" : "glass"
@@ -87,7 +87,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="mx-auto mt-2 max-w-7xl px-4 md:hidden"
+            className="mx-auto mt-2 max-w-6xl px-4 md:hidden"
           >
             <div className="glass-strong rounded-2xl p-3">
               <ul className="flex flex-col">
