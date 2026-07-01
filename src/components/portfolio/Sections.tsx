@@ -429,50 +429,39 @@ export function Services() {
   );
 }
 
-/* ----------------------------- GITHUB ----------------------------- */
-type Repo = {
-  id: number;
-  name: string;
-  description: string | null;
-  html_url: string;
-  homepage: string | null;
-  stargazers_count: number;
-  forks_count: number;
-  language: string | null;
-  pushed_at: string;
-  fork: boolean;
-};
-
-async function fetchRepos(): Promise<Repo[]> {
-  const res = await fetch(
-    `https://api.github.com/users/${personal.githubUser}/repos?per_page=100&sort=pushed`,
-  );
-  if (!res.ok) throw new Error("GitHub fetch failed");
-  const data: Repo[] = await res.json();
-  return data.filter((r) => !r.fork).slice(0, 6);
-}
+/* ----------------------------- LIVE PROJECTS ----------------------------- */
+const liveProjects = [
+  {
+    name: "Osama's Culinary Canvas",
+    url: "https://osama-s-culinary-canvas.vercel.app/",
+    tag: "Restaurant",
+  },
+  {
+    name: "Maison Noir Estates",
+    url: "https://real-sage-kappa.vercel.app/",
+    tag: "Real Estate",
+  },
+  {
+    name: "Pure Dental Sparkle",
+    url: "https://pure-dental-sparkle.vercel.app/",
+    tag: "Dental Clinic",
+  },
+];
 
 export function GitHubSection() {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["github-repos"],
-    queryFn: fetchRepos,
-    staleTime: 1000 * 60 * 30,
-    retry: 1,
-  });
-
   return (
     <section id="github" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <SectionHeading
-            eyebrow="Open Source"
+            eyebrow="Live Work"
             title={
               <>
                 Live from my<br />
                 <span className="italic text-gradient-gold">GitHub</span>.
               </>
             }
-            description="Recent repositories — pulled live, sorted by latest activity."
+            description="Handpicked projects — live in production, built and deployed by me."
           />
           <Reveal>
             <a
@@ -488,69 +477,45 @@ export function GitHubSection() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {isLoading
-            ? Array.from({ length: 6 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="h-48 animate-pulse rounded-3xl glass"
-                  aria-hidden
-                />
-              ))
-            : isError || !data
-              ? (
-                <div className="col-span-full rounded-3xl glass p-8 text-center text-sm text-muted-foreground">
-                  Couldn't load repositories right now.{" "}
-                  <a
-                    href={personal.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-gold underline-offset-4 hover:underline"
-                  >
-                    Visit GitHub directly →
-                  </a>
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {liveProjects.map((r, i) => (
+            <Reveal key={r.url} delay={i * 0.05}>
+              <a
+                href={r.url}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex h-full flex-col rounded-3xl glass p-6 transition-all hover:-translate-y-1 hover:border-gold/30"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-gold">
+                      {r.tag}
+                    </p>
+                    <h3 className="mt-1.5 font-display text-lg text-cream">
+                      {r.name}
+                    </h3>
+                  </div>
+                  <ExternalLink
+                    size={18}
+                    className="shrink-0 text-muted-foreground transition-colors group-hover:text-gold"
+                  />
                 </div>
-              )
-              : data.map((r, i) => (
-                  <Reveal key={r.id} delay={i * 0.04}>
-                    <a
-                      href={r.html_url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group flex h-full flex-col rounded-3xl glass p-6 transition-all hover:-translate-y-1 hover:border-gold/30"
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="min-w-0">
-                          <p className="text-[10px] uppercase tracking-[0.25em] text-gold">
-                            Repository
-                          </p>
-                          <h3 className="mt-1.5 truncate font-display text-xl text-cream">
-                            {r.name}
-                          </h3>
-                        </div>
-                        <Github size={18} className="shrink-0 text-muted-foreground transition-colors group-hover:text-gold" />
-                      </div>
-                      <p className="mt-3 line-clamp-3 text-sm text-muted-foreground">
-                        {r.description || "No description provided."}
-                      </p>
-                      <div className="mt-auto flex items-center gap-4 pt-5 text-xs text-muted-foreground">
-                        {r.language ? (
-                          <span className="inline-flex items-center gap-1.5">
-                            <span className="h-2 w-2 rounded-full bg-gold" />
-                            {r.language}
-                          </span>
-                        ) : null}
-                        <span>★ {r.stargazers_count}</span>
-                        <span>⑂ {r.forks_count}</span>
-                      </div>
-                    </a>
-                  </Reveal>
-                ))}
+                <p className="mt-3 truncate text-xs text-muted-foreground">
+                  {r.url.replace(/^https?:\/\//, "")}
+                </p>
+                <div className="mt-auto flex items-center gap-2 pt-5 text-[11px] uppercase tracking-[0.2em] text-gold/80">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Live in production
+                </div>
+              </a>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ----------------------------- CONTACT ----------------------------- */
 export function Contact() {
