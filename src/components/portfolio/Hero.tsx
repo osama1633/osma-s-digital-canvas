@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"
+      className="relative isolate overflow-hidden pt-24 pb-14 sm:pt-32 sm:pb-20"
     >
       {/* Animated ambient orbs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
