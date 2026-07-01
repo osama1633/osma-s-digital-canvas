@@ -60,7 +60,7 @@ export function SectionHeading({
       </Reveal>
       {description ? (
         <Reveal delay={0.1}>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             {description}
           </p>
         </Reveal>
