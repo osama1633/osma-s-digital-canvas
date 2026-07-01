@@ -2,6 +2,8 @@ import profile from "@/assets/profile.jpeg.asset.json";
 import projectKitchen from "@/assets/project-kitchen.jpeg.asset.json";
 import projectDental from "@/assets/project-dental.jpeg.asset.json";
 import projectEstates from "@/assets/project-estates.jpeg.asset.json";
+import certSql from "@/assets/certificate-sql.png.asset.json";
+import certPhp from "@/assets/certificate-php.png.asset.json";
 import cv from "@/assets/cv.pdf.asset.json";
 
 export const profile_image = profile.url;
@@ -53,6 +55,16 @@ export const techStack = [
 
 export const projects = [
   {
+    title: "Maison Noir Estates",
+    tagline: "Private real-estate portfolio",
+    description:
+      "A discreet, gallery-style platform for private estates and villas. Cinematic imagery, generous whitespace and structured listings built for serious buyers and discerning agents.",
+    image: projectEstates.url,
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    live: "https://real-sage-kappa.vercel.app/",
+    github: "https://github.com/osama1633",
+  },
+  {
     title: "Osama's Kitchen",
     tagline: "Cinematic restaurant experience",
     description:
@@ -63,23 +75,13 @@ export const projects = [
     github: "https://github.com/osama1633",
   },
   {
-    title: "Aurum Dental",
+    title: "Pure Dental",
     tagline: "Luxury dental atelier",
     description:
       "A quiet-luxury web presence for a world-class dental clinic. Editorial typography, refined motion and a booking-first hero crafted to read like a high-end fashion magazine.",
     image: projectDental.url,
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     live: "https://pure-dental-sparkle.vercel.app/",
-    github: "https://github.com/osama1633",
-  },
-  {
-    title: "Maison Noir Estates",
-    tagline: "Private real-estate portfolio",
-    description:
-      "A discreet, gallery-style platform for private estates. Cinematic imagery, generous whitespace and structured listings built for serious buyers and discerning agents.",
-    image: projectEstates.url,
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    live: "https://real-sage-kappa.vercel.app/",
     github: "https://github.com/osama1633",
   },
 ];
@@ -118,10 +120,18 @@ export const services = [
 ];
 
 export const certificates = [
-  { title: "Frontend Development", issuer: "Self-directed Study", year: "2024" },
-  { title: "React & Next.js Mastery", issuer: "Online Curriculum", year: "2024" },
-  { title: "TypeScript Fundamentals", issuer: "Online Curriculum", year: "2024" },
-  { title: "Responsive Web Design", issuer: "Online Curriculum", year: "2023" },
+  {
+    title: "Transact SQL queries using SQL Server",
+    issuer: "Mahara-Tech · ITI Platform",
+    year: "2025",
+    image: certSql.url,
+  },
+  {
+    title: "Building Web Applications using PHP & MySQL",
+    issuer: "Mahara-Tech · ITI Platform",
+    year: "2025",
+    image: certPhp.url,
+  },
 ];
 
 export const education = [

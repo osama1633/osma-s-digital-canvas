@@ -311,18 +311,32 @@ export function Certificates() {
           }
           description="A selection of focused study tracks I've completed to deepen my craft."
         />
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
           {certificates.map((c, i) => (
             <Reveal key={c.title} delay={i * 0.05}>
-              <article className="group relative h-full overflow-hidden rounded-3xl glass p-6 transition-all hover:-translate-y-1 hover:border-gold/30">
-                <Award size={22} className="text-gold" strokeWidth={1.5} />
-                <h3 className="mt-5 font-display text-xl text-cream">
-                  {c.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">{c.issuer}</p>
-                <p className="mt-4 inline-flex rounded-full border border-gold/20 bg-gold/5 px-2.5 py-0.5 text-[11px] text-gold">
-                  {c.year}
-                </p>
+              <article className="group relative h-full overflow-hidden rounded-3xl glass transition-all hover:-translate-y-1 hover:border-gold/30">
+                <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                  <img
+                    src={c.image}
+                    alt={`${c.title} — certificate`}
+                    className="absolute inset-0 h-full w-full object-contain transition-transform duration-[1.2s] group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-gold">
+                    <Award size={18} strokeWidth={1.5} />
+                    <span className="text-[11px] uppercase tracking-[0.25em]">
+                      {c.year}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 font-display text-xl text-cream">
+                    {c.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {c.issuer}
+                  </p>
+                </div>
               </article>
             </Reveal>
           ))}
