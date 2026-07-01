@@ -54,13 +54,13 @@ export function SectionHeading({
         </div>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="mt-5 font-display text-4xl leading-[1.05] text-cream sm:text-5xl md:text-6xl">
+        <h2 className="mt-4 font-display text-3xl leading-[1.05] text-cream sm:text-4xl md:text-5xl">
           {title}
         </h2>
       </Reveal>
       {description ? (
         <Reveal delay={0.1}>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             {description}
           </p>
         </Reveal>

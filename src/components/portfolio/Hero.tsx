@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"
+      className="relative isolate overflow-hidden pt-24 pb-14 sm:pt-32 sm:pb-20"
     >
       {/* Animated ambient orbs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -28,7 +28,7 @@ export function Hero() {
         }}
       />
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-8">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -44,7 +44,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] tracking-tight text-cream"
+            className="mt-5 font-display text-[clamp(2rem,5.5vw,4rem)] leading-[0.98] tracking-tight text-cream"
           >
             Crafting digital
             <br />
