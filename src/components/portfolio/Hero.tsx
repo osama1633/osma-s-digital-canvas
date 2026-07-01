@@ -44,7 +44,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] tracking-tight text-cream"
+            className="mt-5 font-display text-[clamp(2rem,5.5vw,4rem)] leading-[0.98] tracking-tight text-cream"
           >
             Crafting digital
             <br />
