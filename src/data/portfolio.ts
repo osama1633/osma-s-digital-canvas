@@ -1,13 +1,12 @@
-import profile from "@/assets/profile.jpeg.asset.json";
-import projectKitchen from "@/assets/project-kitchen.jpeg.asset.json";
-import projectDental from "@/assets/project-dental.jpeg.asset.json";
-import projectEstates from "@/assets/project-estates.jpeg.asset.json";
-import certSql from "@/assets/certificate-sql.png.asset.json";
-import certPhp from "@/assets/certificate-php.png.asset.json";
-import cv from "@/assets/cv.pdf.asset.json";
+export const profile_image = "/assets/osama-profile.jpeg";
+export const cv_url = "/assets/Osama-Fares-CV.pdf";
 
-export const profile_image = profile.url;
-export const cv_url = cv.url;
+const projectKitchen = { url: "/assets/project-kitchen.jpeg" };
+const projectDental = { url: "/assets/project-dental.jpeg" };
+const projectEstates = { url: "/assets/project-estates.jpeg" };
+const certSql = { url: "/assets/certificate-sql.png" };
+const certPhp = { url: "/assets/certificate-php.png" };
+
 
 export const personal = {
   name: "Osama Fares",
