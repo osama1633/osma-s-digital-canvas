@@ -83,6 +83,16 @@ export const projects = [
     live: "https://pure-dental-sparkle.vercel.app/",
     github: "https://github.com/osama1633",
   },
+  {
+    title: "Happy Helper Hub",
+    tagline: "Modern responsive web application",
+    description:
+      "A modern, responsive web application with a professional UI/UX, optimized performance and mobile-friendly design — built to feel fast, polished and effortless on any device.",
+    image: "/assets/project-happy-helper.jpg",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    live: "https://happy-helper-hub-rosy.vercel.app/",
+    github: "https://github.com/osama1633",
+  },
 ];
 
 export const services = [
