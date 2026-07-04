@@ -74,16 +74,6 @@ export const projects = [
     github: "https://github.com/osama1633",
   },
   {
-    title: "Pure Dental",
-    tagline: "Luxury dental atelier",
-    description:
-      "A quiet-luxury web presence for a world-class dental clinic. Editorial typography, refined motion and a booking-first hero crafted to read like a high-end fashion magazine.",
-    image: projectDental.url,
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    live: "https://pure-dental-sparkle.vercel.app/",
-    github: "https://github.com/osama1633",
-  },
-  {
     title: "Happy Helper Hub",
     tagline: "Modern responsive web application",
     description:
@@ -91,6 +81,16 @@ export const projects = [
     image: "/assets/project-happy-helper.jpg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     live: "https://happy-helper-hub-rosy.vercel.app/",
+    github: "https://github.com/osama1633",
+  },
+  {
+    title: "Pure Dental",
+    tagline: "Luxury dental atelier",
+    description:
+      "A quiet-luxury web presence for a world-class dental clinic. Editorial typography, refined motion and a booking-first hero crafted to read like a high-end fashion magazine.",
+    image: projectDental.url,
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    live: "https://pure-dental-sparkle.vercel.app/",
     github: "https://github.com/osama1633",
   },
 ];
