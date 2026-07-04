@@ -94,12 +94,6 @@ export const projects = [
     github: "https://github.com/osama1633",
   },
 ];
-    image: "/assets/project-happy-helper.jpg",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    live: "https://happy-helper-hub-rosy.vercel.app/",
-    github: "https://github.com/osama1633",
-  },
-];
 
 export const services = [
   {
