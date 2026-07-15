@@ -103,7 +103,7 @@ export const projects: Array<{
     tagline: "Luxury cars showcase",
     description:
       "A modern, responsive web application with a professional UI/UX, optimized performance and mobile-friendly design — built to feel fast, polished and effortless on any device.",
-    image: "/assets/project-happy-helper.jpg",
+    image: "/assets/project-happy-helper.webp",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     live: "https://happy-helper-hub-rosy.vercel.app/",
     github: "https://github.com/osama1633",
