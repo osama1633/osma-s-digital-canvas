@@ -32,9 +32,18 @@ export const Route = createFileRoute("/")({
           "Premium portfolio of Osama Fares — crafting elegant, production-ready web experiences.",
       },
     ],
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: "/assets/osama-profile.webp",
+        fetchpriority: "high",
+      },
+    ],
   }),
   component: Index,
 });
+
 
 function Index() {
   return (
