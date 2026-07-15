@@ -204,6 +204,16 @@ export function TechStack() {
 
 /* ----------------------------- PROJECTS ----------------------------- */
 export function Projects() {
+  const availableCategories = projectCategories.filter(
+    (c) => c === "All" || projects.some((p) => p.category === c),
+  );
+  const [activeCategory, setActiveCategory] = useState<(typeof projectCategories)[number]>("All");
+
+  const filtered =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
+
   return (
     <section id="projects" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -218,84 +228,128 @@ export function Projects() {
           description="A handful of recent builds — each one designed, developed and deployed by me."
         />
 
-        <div className="mt-10 space-y-8">
-          {projects.map((p, i) => {
-            const reversed = i % 2 === 1;
-            return (
-              <Reveal key={p.title} delay={i * 0.05}>
-                <article className="group relative grid grid-cols-1 gap-0 overflow-hidden rounded-[2rem] glass shadow-card transition-all hover:border-gold/30 lg:grid-cols-2">
-                  <div
-                    className={`relative aspect-[4/3] overflow-hidden lg:aspect-auto ${
-                      reversed ? "lg:order-2" : ""
-                    }`}
-                  >
-                    <img
-                      src={p.image}
-                      alt={`${p.title} — project screenshot`}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-onyx/70 via-onyx/10 to-transparent" />
-                    <div className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full glass-strong px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-gold">
-                      <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-                      Live
-                    </div>
+        <Reveal>
+          <div
+            className="mt-8 flex flex-wrap justify-center gap-2"
+            role="tablist"
+            aria-label="Project categories"
+          >
+            {availableCategories.map((cat) => {
+              const active = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`rounded-full border px-4 py-1.5 text-xs uppercase tracking-[0.2em] transition-all ${
+                    active
+                      ? "border-gold/50 bg-gradient-to-br from-gold/20 to-gold-soft/10 text-gold shadow-glow"
+                      : "border-white/10 bg-white/[0.03] text-cream/70 hover:border-gold/30 hover:text-gold"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        </Reveal>
+
+        <motion.div
+          layout
+          className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <AnimatePresence mode="popLayout">
+            {filtered.map((p, i) => (
+              <motion.article
+                key={p.title}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.35, delay: i * 0.04 }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl glass shadow-card transition-all hover:-translate-y-1 hover:border-gold/30"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={`${p.title} — project screenshot`}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-onyx/80 via-onyx/10 to-transparent" />
+                  <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full glass-strong px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] text-gold">
+                    <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
+                    Live
                   </div>
-                  <div className="flex flex-col justify-between gap-6 p-7 sm:p-10">
-                    <div>
-                      <p className="text-[11px] uppercase tracking-[0.3em] text-gold">
-                        {p.tagline}
-                      </p>
-                      <h3 className="mt-3 font-display text-3xl text-cream sm:text-4xl">
-                        {p.title}
-                      </h3>
-                      <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                        {p.description}
-                      </p>
-                      <ul className="mt-5 flex flex-wrap gap-2">
-                        {p.tech.map((t) => (
-                          <li
-                            key={t}
-                            className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-cream/85"
-                          >
-                            {t}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                      <a
-                        href={p.live}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group/btn inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-gold to-gold-soft px-5 py-2.5 text-sm font-medium text-onyx shadow-glow transition-transform hover:scale-[1.03]"
-                      >
-                        Live Demo
-                        <ExternalLink
-                          size={14}
-                          className="transition-transform group-hover/btn:translate-x-0.5"
-                        />
-                      </a>
+                  <div className="absolute right-3 top-3 rounded-full glass-strong px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] text-cream/80">
+                    {p.category}
+                  </div>
+                </div>
+                <div className="flex flex-1 flex-col gap-4 p-5">
+                  <div className="flex-1">
+                    <p className="text-[10px] uppercase tracking-[0.3em] text-gold">
+                      {p.tagline}
+                    </p>
+                    <h3 className="mt-2 font-display text-xl text-cream">
+                      {p.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                      {p.description}
+                    </p>
+                    <ul className="mt-3 flex flex-wrap gap-1.5">
+                      {p.tech.slice(0, 4).map((t) => (
+                        <li
+                          key={t}
+                          className="rounded-full border border-white/10 bg-white/[0.03] px-2 py-0.5 text-[10px] text-cream/85"
+                        >
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group/btn inline-flex items-center gap-1.5 rounded-full bg-gradient-to-br from-gold to-gold-soft px-4 py-2 text-xs font-medium text-onyx shadow-glow transition-transform hover:scale-[1.03]"
+                    >
+                      Live Demo
+                      <ExternalLink
+                        size={12}
+                        className="transition-transform group-hover/btn:translate-x-0.5"
+                      />
+                    </a>
+                    {p.github && (
                       <a
                         href={p.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:border-gold/40"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-medium text-cream transition-colors hover:border-gold/40"
                       >
-                        <Github size={15} />
+                        <Github size={13} />
                         GitHub
                       </a>
-                    </div>
+                    )}
                   </div>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
+                </div>
+              </motion.article>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {filtered.length === 0 && (
+          <p className="mt-10 text-center text-sm text-muted-foreground">
+            No projects in this category yet — check back soon.
+          </p>
+        )}
       </div>
     </section>
   );
 }
+
 
 /* ----------------------------- CERTIFICATES ----------------------------- */
 export function Certificates() {
