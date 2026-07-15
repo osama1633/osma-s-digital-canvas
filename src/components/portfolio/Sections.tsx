@@ -26,11 +26,13 @@ import {
   education,
   faqs,
   personal,
+  projectCategories,
   projects,
   services,
   skills,
   techStack,
 } from "@/data/portfolio";
+
 
 /* ----------------------------- ABOUT ----------------------------- */
 export function About() {
