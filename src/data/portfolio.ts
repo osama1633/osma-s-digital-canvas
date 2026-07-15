@@ -1,11 +1,12 @@
-export const profile_image = "/assets/osama-profile.jpeg";
+export const profile_image = "/assets/osama-profile.webp";
 export const cv_url = "/assets/Osama-Fares-CV.pdf";
 
-const projectKitchen = { url: "/assets/project-kitchen.jpeg" };
-const projectDental = { url: "/assets/project-dental.jpeg" };
-const projectEstates = { url: "/assets/project-estates.jpeg" };
-const certSql = { url: "/assets/certificate-sql.png" };
-const certPhp = { url: "/assets/certificate-php.png" };
+const projectKitchen = { url: "/assets/project-kitchen.webp" };
+const projectDental = { url: "/assets/project-dental.webp" };
+const projectEstates = { url: "/assets/project-estates.webp" };
+const certSql = { url: "/assets/certificate-sql.webp" };
+const certPhp = { url: "/assets/certificate-php.webp" };
+
 
 
 export const personal = {
@@ -102,7 +103,7 @@ export const projects: Array<{
     tagline: "Luxury cars showcase",
     description:
       "A modern, responsive web application with a professional UI/UX, optimized performance and mobile-friendly design — built to feel fast, polished and effortless on any device.",
-    image: "/assets/project-happy-helper.jpg",
+    image: "/assets/project-happy-helper.webp",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     live: "https://happy-helper-hub-rosy.vercel.app/",
     github: "https://github.com/osama1633",
@@ -113,7 +114,7 @@ export const projects: Array<{
     tagline: "Streetwear e-commerce drop",
     description:
       "A bold, heavyweight streetwear e-commerce experience. Editorial product photography, oversized typography and a frictionless shop flow built for graphic drops that don't ask for permission.",
-    image: "/assets/project-fz-vision.jpg",
+    image: "/assets/project-fz-vision.webp",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     live: "https://fz-vision.vercel.app/",
     github: "https://github.com/osama1633",
