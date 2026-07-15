@@ -1,11 +1,12 @@
-export const profile_image = "/assets/osama-profile.jpeg";
+export const profile_image = "/assets/osama-profile.webp";
 export const cv_url = "/assets/Osama-Fares-CV.pdf";
 
-const projectKitchen = { url: "/assets/project-kitchen.jpeg" };
-const projectDental = { url: "/assets/project-dental.jpeg" };
-const projectEstates = { url: "/assets/project-estates.jpeg" };
-const certSql = { url: "/assets/certificate-sql.png" };
-const certPhp = { url: "/assets/certificate-php.png" };
+const projectKitchen = { url: "/assets/project-kitchen.webp" };
+const projectDental = { url: "/assets/project-dental.webp" };
+const projectEstates = { url: "/assets/project-estates.webp" };
+const certSql = { url: "/assets/certificate-sql.webp" };
+const certPhp = { url: "/assets/certificate-php.webp" };
+
 
 
 export const personal = {
