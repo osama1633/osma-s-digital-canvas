@@ -52,7 +52,29 @@ export const techStack = [
   "Framer Motion",
 ];
 
-export const projects = [
+export const projectCategories = [
+  "All",
+  "E-Commerce",
+  "Restaurant",
+  "Healthcare",
+  "Real Estate",
+  "Landing Pages",
+  "Portfolio",
+  "Other",
+] as const;
+
+export type ProjectCategory = (typeof projectCategories)[number];
+
+export const projects: Array<{
+  title: string;
+  tagline: string;
+  description: string;
+  image: string;
+  tech: string[];
+  live: string;
+  github?: string;
+  category: Exclude<ProjectCategory, "All">;
+}> = [
   {
     title: "Maison Noir Estates",
     tagline: "Private real-estate portfolio",
@@ -62,6 +84,7 @@ export const projects = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     live: "https://real-sage-kappa.vercel.app/",
     github: "https://github.com/osama1633",
+    category: "Real Estate",
   },
   {
     title: "Osama's Kitchen",
@@ -72,16 +95,29 @@ export const projects = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     live: "https://osama-s-culinary-canvas.vercel.app/",
     github: "https://github.com/osama1633",
+    category: "Restaurant",
   },
   {
     title: "Happy Helper Hub",
-    tagline: "Modern responsive web application",
+    tagline: "Luxury cars showcase",
     description:
       "A modern, responsive web application with a professional UI/UX, optimized performance and mobile-friendly design — built to feel fast, polished and effortless on any device.",
     image: "/assets/project-happy-helper.jpg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     live: "https://happy-helper-hub-rosy.vercel.app/",
     github: "https://github.com/osama1633",
+    category: "Landing Pages",
+  },
+  {
+    title: "FZ — Fashion Zone",
+    tagline: "Streetwear e-commerce drop",
+    description:
+      "A bold, heavyweight streetwear e-commerce experience. Editorial product photography, oversized typography and a frictionless shop flow built for graphic drops that don't ask for permission.",
+    image: "/assets/project-fz-vision.jpg",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    live: "https://fz-vision.vercel.app/",
+    github: "https://github.com/osama1633",
+    category: "E-Commerce",
   },
   {
     title: "Pure Dental",
@@ -92,8 +128,10 @@ export const projects = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     live: "https://pure-dental-sparkle.vercel.app/",
     github: "https://github.com/osama1633",
+    category: "Healthcare",
   },
 ];
+
 
 export const services = [
   {
