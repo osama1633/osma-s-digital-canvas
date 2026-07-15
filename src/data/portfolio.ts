@@ -114,7 +114,7 @@ export const projects: Array<{
     tagline: "Streetwear e-commerce drop",
     description:
       "A bold, heavyweight streetwear e-commerce experience. Editorial product photography, oversized typography and a frictionless shop flow built for graphic drops that don't ask for permission.",
-    image: "/assets/project-fz-vision.jpg",
+    image: "/assets/project-fz-vision.webp",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     live: "https://fz-vision.vercel.app/",
     github: "https://github.com/osama1633",
