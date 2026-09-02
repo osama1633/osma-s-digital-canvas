@@ -99,15 +99,26 @@ export const projects: Array<{
     category: "Restaurant",
   },
   {
-    title: "Happy Helper Hub",
-    tagline: "Luxury cars showcase",
+    title: "Bella Napoli",
+    tagline: "Authentic Italian ristorante",
     description:
-      "A modern, responsive web application with a professional UI/UX, optimized performance and mobile-friendly design — built to feel fast, polished and effortless on any device.",
-    image: "/assets/project-happy-helper.webp",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    live: "https://happy-helper-hub-rosy.vercel.app/",
+      "A cinematic fine-dining experience for an authentic Neapolitan ristorante. Editorial serif typography, warm ambient imagery and a reservation-first flow that reads like an evening in Naples.",
+    image: "/assets/project-bella.webp",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    live: "https://bella-napoli-ristorante.vercel.app/",
     github: "https://github.com/osama1633",
-    category: "Landing Pages",
+    category: "Restaurant",
+  },
+  {
+    title: "Zone Hoodies",
+    tagline: "Playful hoodie showcase",
+    description:
+      "A bold, character-driven product showcase for a streetwear hoodie brand. Oversized display type, vibrant color blocking and a snappy shop flow built to turn scrolls into orders.",
+    image: "/assets/project-zone.webp",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    live: "https://zone-hoodie-showcase.vercel.app/",
+    github: "https://github.com/osama1633",
+    category: "E-Commerce",
   },
   {
     title: "FZ — Fashion Zone",
@@ -179,6 +190,18 @@ export const certificates = [
     issuer: "Mahara-Tech · ITI Platform",
     year: "2025",
     image: certPhp.url,
+  },
+  {
+    title: "12 - Data Structures - Level 1",
+    issuer: "ProgrammingAdvices",
+    year: "2026",
+    image: "/assets/certificate-ds.webp",
+  },
+  {
+    title: "15 - Database Level 1 - SQL (Concepts and Practice)",
+    issuer: "ProgrammingAdvices",
+    year: "2026",
+    image: "/assets/certificate-db.webp",
   },
 ];
 
